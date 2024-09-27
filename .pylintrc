@@ -46,7 +46,8 @@ confidence=
 # --disable=W".
 disable=cyclic-import,
     consider-using-f-string,
-    logging-fstring-interpolation
+    logging-fstring-interpolation,
+    too-many-positional-arguments
   #	fixme,
 
 # Enable the message, report, category or checker with the given id(s). You can
