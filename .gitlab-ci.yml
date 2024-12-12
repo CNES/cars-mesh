@@ -160,6 +160,7 @@ sync-github:
   before_script:
     # Add CNES certificates to allow the runner to clone gitlab repo.
     # CNES_CERTIFICATE is defined in the CNES global gitlab instance
+    - mkdir -p /usr/local/share/ca-certificates/ # directory not existing in latest alpine, create it first
     - cat ${CNES_CERTIFICATE} > /usr/local/share/ca-certificates/my-cert.crt
     # Certificate update
     - update-ca-certificates
