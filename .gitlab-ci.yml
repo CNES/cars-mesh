@@ -34,7 +34,7 @@ variables:
   # TAGS for images if each stages: base python and at3d cnes3d/testall for tox
   TAG_IMAGE_PYTHON: "python:3.10.8"
   TAG_IMAGE_CNES3D: "cnes3d/testall:0.1.0"
-  TAG_IMAGE_GIT: "alpine/git"
+  TAG_IMAGE_GIT: "alpine/git:v2.45.2"
   # Can be used to move pip cache in local directory
   PIP_CACHE_DIR: "${WORKSPACE}/.pip-cache/"
   # Local artifactory Dockerhub URL containing copies of docker hub images
@@ -160,7 +160,6 @@ sync-github:
   before_script:
     # Add CNES certificates to allow the runner to clone gitlab repo.
     # CNES_CERTIFICATE is defined in the CNES global gitlab instance
-    - mkdir -p /usr/local/share/ca-certificates/ # directory not existing in latest alpine, create it first
     - cat ${CNES_CERTIFICATE} > /usr/local/share/ca-certificates/my-cert.crt
     # Certificate update
     - update-ca-certificates
